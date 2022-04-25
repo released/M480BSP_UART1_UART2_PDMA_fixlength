@@ -28,8 +28,6 @@ volatile uint32_t counter_tick = 0;
 uint8_t UART1_RxBuffer[RXBUFSIZE] = {0};
 uint8_t UART2_RxBuffer[RXBUFSIZE] = {0};
 
-#define PDMA_GET_TRANS_CNT(pdma,u32Ch) ((uint32_t)((pdma->DSCT[(u32Ch)].CTL&PDMA_DSCT_CTL_TXCNT_Msk) >> PDMA_DSCT_CTL_TXCNT_Pos))
-
 /*_____ M A C R O S ________________________________________________________*/
 
 /*_____ F U N C T I O N S __________________________________________________*/
@@ -232,7 +230,7 @@ void PDMA_IRQHandler(void)
         // printf("UART1_RX time-out !!\r\n");
         /* Update receive count */
 
-        PDMA_SET_TRANS_CNT(PDMA, UART1_RX_DMA_CH,1); 
+        // PDMA_SET_TRANS_CNT(PDMA, UART1_RX_DMA_CH,1); 
         /* restart timeout */
         PDMA_SetTimeOut(PDMA, UART1_RX_DMA_CH, DISABLE, 0);
         PDMA_CLR_TMOUT_FLAG(PDMA, UART1_RX_DMA_CH);
@@ -246,7 +244,7 @@ void PDMA_IRQHandler(void)
         // printf("UART2_RX time-out !!\r\n");
         /* Update receive count */
         
-        PDMA_SET_TRANS_CNT(PDMA, UART2_RX_DMA_CH,1);    
+        // PDMA_SET_TRANS_CNT(PDMA, UART2_RX_DMA_CH,1);    
         /* restart timeout */
         PDMA_SetTimeOut(PDMA, UART2_RX_DMA_CH, DISABLE, 0);
         PDMA_CLR_TMOUT_FLAG(PDMA, UART2_RX_DMA_CH);
