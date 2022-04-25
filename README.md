@@ -7,7 +7,7 @@ update @ 2022/04/25
 
 2. below is log capture , 
 
-![image](https://github.com/released/M480BSP_UART1_UART2_PDMA/blob/main/log.jpg)
+![image](https://github.com/released/M480BSP_UART1_UART2_PDMA_fixlength/blob/main/log.jpg)
 
 
 
